@@ -1,20 +1,20 @@
 import React from 'react';
-import { url } from '../utils/constants';
+import { url } from './constants';
 
 const Search = ({ handleSearchNote }) => {
 	let timer = 500, timeout;
 	const debounce = (func) => {
 		clearTimeout(timeout);
 		timeout = setTimeout(func, timer);
-	} 
+	}
 	return (
 		<div className='search'>
-			<img src={url+'search.png'} alt='search' className='search-icons' size='1.3em' />
+			<img src={url + 'search.png'} alt='search' className='icons' />
 			<input
 				onChange={(event) =>
-					debounce(() =>{handleSearchNote(event.target.value)})}
+					debounce(() => { handleSearchNote(event.target.value) })}
 				type='text'
-				placeholder='type to search...'
+				placeholder='Type to search...'
 			/>
 		</div>
 	);
