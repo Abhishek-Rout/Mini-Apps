@@ -1,8 +1,7 @@
 import './App.css'
 import PhoneOtpForm from '../Otp-input/components/PhoneOtpForm'
 
-function App() {
-
+function Otpform() {
   return (
     <div className='App'>
       <h1>Login with Phone</h1>
@@ -11,4 +10,4 @@ function App() {
   )
 }
 
-export default App
+export default Otpform;
