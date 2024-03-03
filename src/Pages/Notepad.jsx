@@ -2,10 +2,8 @@ import { useState } from 'react';
 import NotesList from '../Notepad/components/NotesList';
 import Header from '../Notepad/components/Header';
 
-const App = () => {
-
+const Notepad = () => {
 	const [darkMode, setDarkMode] = useState(false);
-
 	return (
 		<div className={`${darkMode && 'dark-mode'}`}>
 			<div className='container'>
@@ -16,4 +14,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default Notepad;
