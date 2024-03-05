@@ -1,7 +1,7 @@
 import Note from './Note';
 import AddNote from './AddNote';
 import { v4 as uuid } from 'uuid';
-import { url } from './constants';
+import { url } from '../utils/constants';
 import Search from './Search';
 import { useState, useEffect } from 'react';
 
