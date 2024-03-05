@@ -1,15 +1,16 @@
-import NotePad from './Pages/Notepad'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Notepad from './Pages/Notepad';
 import Otpform from './Pages/Otpform';
-import {Route, Link} from 'react-router-dom';
-import './App.css';
 
 function App() {
   return (
-    <div className='App'>
-      <Route exact path='/Notepad' component={NotePad} />
-      <Route exact path='/Otpform' component={Otpform} />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path='/Notepad' element={<Notepad />} />
+        <Route path='/Otpform' element={<Otpform />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
