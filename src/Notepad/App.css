@@ -27,7 +27,7 @@ code {
 }
 
 .container {
-	max-width: 960px;
+	width: 960px;
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 15px;

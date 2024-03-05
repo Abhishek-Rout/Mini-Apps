@@ -1,6 +1,8 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  height: 100vh;
+  width: 960px;
 }
 .otpInput{
   width: 40px;

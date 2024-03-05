@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import NotesList from '../Notepad/components/NotesList';
 import Header from '../Notepad/components/Header';
+import '../Notepad/App.css';
 
 const Notepad = () => {
 	const [darkMode, setDarkMode] = useState(false);

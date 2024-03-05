@@ -1,5 +1,5 @@
 import React from 'react';
-import { url } from './constants';
+import { url } from '../utils/constants';
 
 const Search = ({ handleSearchNote }) => {
 	let timer = 500, timeout;

@@ -1,5 +1,5 @@
-import './App.css'
-import PhoneOtpForm from '../Otp-input/components/PhoneOtpForm'
+import '../Otp-input/App.css';
+import PhoneOtpForm from '../Otp-input/components/PhoneOtpForm';
 
 function Otpform() {
   return (

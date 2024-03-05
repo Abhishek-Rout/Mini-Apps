@@ -1,4 +1,4 @@
-import { url } from './constants';
+import { url } from '../utils/constants';
 
 const Note = ({ id, head, text, date, handleDeleteNote, handleEditNote }) => {
 	return (
