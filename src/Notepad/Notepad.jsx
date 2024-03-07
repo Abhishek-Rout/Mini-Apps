@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import NotesList from '../Notepad/components/NotesList';
-import Header from '../Notepad/components/Header';
+import NotesList from './components/NotesList';
+import Header from './components/Header';
 import '../Notepad/App.css';
 
 const Notepad = () => {
