@@ -7,9 +7,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/Notepad' element={<Notepad />} />
-        <Route path='/Otpform' element={<Otpform />} />
-        <Route path='/UrlShortner' element={<UrlShortner />} />
+        <Route path='/notepad' element={<Notepad />} />
+        <Route path='/otpform' element={<Otpform />} />
+        <Route path='/short.io' element={<UrlShortner />} />
       </Routes>
     </Router>
   );
