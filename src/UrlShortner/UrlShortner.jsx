@@ -1,12 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './UrlShortner.module.scss';
 import hash from '../utils/hash';
 
 function UrlShortner() {
     const queryString = window.location.search.slice(1);
-    if(queryString !== '') {
-        window.location.replace('https://github.com/Abhishek-Rout/Mini-Apps/tree/main/src/utils');
+    if (queryString !== '') {
+        window.location.replace('http://127.0.0.1:5173/Short.io/');
     }
+    const apiUrl = import.meta.env.VITE_SHORT_URL_API;
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(apiUrl);
+                const jsonData = await response.json();
+                setData(jsonData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData(); // Call the fetch function
+    }, []);
+
+    console.log(data);
+
     const [url, setUrl] = useState();
     const [shortendUrl, setShortenedUrl] = useState('');
     // Convert url into a hex
@@ -17,7 +36,6 @@ function UrlShortner() {
         const shortURL = header + hashedURL;
         setShortenedUrl(shortURL);
     }
-
 
     return (
         <div className={styles.UrlShortner}>
