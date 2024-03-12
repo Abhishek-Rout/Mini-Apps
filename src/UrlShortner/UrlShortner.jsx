@@ -3,10 +3,8 @@ import styles from './UrlShortner.module.scss';
 import hash from '../utils/hash';
 
 function UrlShortner() {
-    const queryString = window.location.search.slice(1);
-    if (queryString !== '') {
-        window.location.replace('http://127.0.0.1:5173/Short.io/');
-    }
+    const queryString = window.location.search;
+
     const apiUrl = import.meta.env.VITE_SHORT_URL_API;
     const [data, setData] = useState(null);
 
@@ -25,6 +23,9 @@ function UrlShortner() {
     }, []);
 
     console.log(data);
+    if(queryString.slice(1) !== '') {
+        window.location.replace(data[queryString.slice(1)]);
+    }
 
     const [url, setUrl] = useState();
     const [shortendUrl, setShortenedUrl] = useState('');
