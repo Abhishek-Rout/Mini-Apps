@@ -23,7 +23,7 @@ function UrlShortner() {
     }, []);
 
     console.log(data);
-    if(queryString.slice(1) !== '') {
+    if (queryString.slice(1) !== '') {
         window.location.replace(data[queryString.slice(1)]);
     }
 
@@ -32,10 +32,17 @@ function UrlShortner() {
     // Convert url into a hex
     const urlToHex = () => {
         // const header = 'https://abhishek-rout.github.io/Mini-Apps/short.io/?';
-        const header = 'http://127.0.0.1:5173/Short.io/?';
+        const header = `${window.location.href}?`;
         const hashedURL = hash(url);
         const shortURL = header + hashedURL;
         setShortenedUrl(shortURL);
+        const data = {url: url, hash: hashedURL};
+        fetch(apiUrl,
+            {
+                method: "POST",
+                body: data,
+            })
+            .then(res => res.text());
     }
 
     return (
