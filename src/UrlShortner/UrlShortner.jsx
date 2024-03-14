@@ -6,14 +6,16 @@ function UrlShortner() {
     const queryString = window.location.search;
 
     const apiUrl = import.meta.env.VITE_SHORT_URL_API;
-    const [data, setData] = useState(null);
+    // const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(apiUrl);
                 const jsonData = await response.json();
-                setData(jsonData);
+                if (queryString.slice(1) !== '') {
+                    window.location.replace(jsonData[queryString.slice(1)]);
+                }
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -22,10 +24,7 @@ function UrlShortner() {
         fetchData(); // Call the fetch function
     }, []);
 
-    console.log(data);
-    if (queryString.slice(1) !== '') {
-        window.location.replace(data[queryString.slice(1)]);
-    }
+    // console.log(data);
 
     const [url, setUrl] = useState();
     const [shortendUrl, setShortenedUrl] = useState('');
@@ -36,13 +35,20 @@ function UrlShortner() {
         const hashedURL = hash(url);
         const shortURL = header + hashedURL;
         setShortenedUrl(shortURL);
-        const data = {url: url, hash: hashedURL};
-        fetch(apiUrl,
-            {
-                method: "POST",
-                body: data,
-            })
-            .then(res => res.text());
+
+        const postData = { hash: hashedURL, url: url }; // Create object with hash and url properties
+        const jsonString = JSON.stringify(postData); // Convert object to JSON string
+
+        fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json" // Specify JSON content type
+            },
+            body: jsonString, // Send JSON string in the body
+        })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error posting data:', error));
     }
 
     return (
