@@ -1,0 +1,44 @@
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.controls {
+  z-index: 10;
+  position: relative;
+  width: fit-content;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
+}
+
+form {
+  display: grid;
+  justify-content: start;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: auto;
+  margin: 10px 0;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+button {
+  margin: 10px 0;
+}
