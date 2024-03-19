@@ -6,7 +6,6 @@ function UrlShortner() {
     const queryString = window.location.search;
 
     const apiUrl = import.meta.env.VITE_SHORT_URL_API;
-    // const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,7 +29,6 @@ function UrlShortner() {
     const [shortendUrl, setShortenedUrl] = useState('');
     // Convert url into a hex
     const urlToHex = () => {
-        // const header = 'https://abhishek-rout.github.io/Mini-Apps/short.io/?';
         const header = `${window.location.href}?`;
         const hashedURL = hash(url);
         const shortURL = header + hashedURL;
