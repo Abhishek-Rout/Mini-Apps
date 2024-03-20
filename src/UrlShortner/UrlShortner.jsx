@@ -39,6 +39,7 @@ function UrlShortner() {
 
         fetch(apiUrl, {
             method: "POST",
+            mode: "no-cors",
             headers: {
                 "Content-Type": "application/json" // Specify JSON content type
             },
