@@ -4,8 +4,10 @@ import hash from '../utils/hash';
 
 function UrlShortner() {
     const queryString = window.location.search;
-
     const apiUrl = import.meta.env.VITE_SHORT_URL_API;
+    const shortcoUrlApi = import.meta.env.VITE_SHORTCO_URL_API;
+    const [url, setUrl] = useState();
+    const [shortendUrl, setShortenedUrl] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,10 +25,6 @@ function UrlShortner() {
         fetchData(); // Call the fetch function
     }, []);
 
-    // console.log(data);
-
-    const [url, setUrl] = useState();
-    const [shortendUrl, setShortenedUrl] = useState('');
     // Convert url into a hex
     const urlToHex = () => {
         const header = `${window.location.href}?`;
@@ -50,15 +48,31 @@ function UrlShortner() {
             .catch(error => console.error('Error posting data:', error));
     }
 
+    const shortenUrl = async (e) => {
+        // e.preventDefault();
+        // try {
+        //     console.log(`https://api.shrtco.de/v2/shorten?url=${url}`)
+        //     const response = await fetch(`${shortcoUrlApi}${url}`)
+        //     const data = await response.json()
+        //     setShortenedUrl(data.result.full_short_link);
+        // } catch (e) {
+        //     console.error(e);
+        // }
+    };
+
     return (
-        <div className={styles.UrlShortner}>
+        <div className={styles.urlShortner}>
             <div className={styles.shortener}>
-                <h2>URL shortener</h2>
+                <h2>URL shortener using App Script</h2>
                 <input
                     placeholder='Enter URL'
-                    value={url}
                     onChange={(e) => setUrl(e.target.value)} />
                 <button onClick={urlToHex} >Submit</button>
+                <h2>URL shortener using ShortCo Api</h2>
+                <input
+                    placeholder='Enter URL'
+                    onChange={(e) => setUrl(e.target.value)} />
+                <button onClick={shortenUrl} >Submit</button>
                 {shortendUrl &&
                     <div className={styles.shortener__viewShot}>
                         {shortendUrl}
