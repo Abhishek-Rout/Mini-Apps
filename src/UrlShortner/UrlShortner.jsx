@@ -48,17 +48,17 @@ function UrlShortner() {
             .catch(error => console.error('Error posting data:', error));
     }
 
-    const shortenUrl = async (e) => {
-        // e.preventDefault();
-        // try {
-        //     console.log(`https://api.shrtco.de/v2/shorten?url=${url}`)
-        //     const response = await fetch(`${shortcoUrlApi}${url}`)
-        //     const data = await response.json()
-        //     setShortenedUrl(data.result.full_short_link);
-        // } catch (e) {
-        //     console.error(e);
-        // }
-    };
+    // const shortenUrl = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         console.log(`https://api.shrtco.de/v2/shorten?url=${url}`)
+    //         const response = await fetch(`${shortcoUrlApi}${url}`)
+    //         const data = await response.json()
+    //         setShortenedUrl(data.result.full_short_link);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    // };
 
     return (
         <div className={styles.urlShortner}>
@@ -68,11 +68,11 @@ function UrlShortner() {
                     placeholder='Enter URL'
                     onChange={(e) => setUrl(e.target.value)} />
                 <button onClick={urlToHex} >Submit</button>
-                <h2>URL shortener using ShortCo Api</h2>
+{/*                 <h2>URL shortener using ShortCo Api</h2>
                 <input
                     placeholder='Enter URL'
                     onChange={(e) => setUrl(e.target.value)} />
-                <button onClick={shortenUrl} >Submit</button>
+                <button onClick={shortenUrl} >Submit</button> */}
                 {shortendUrl &&
                     <div className={styles.shortener__viewShot}>
                         {shortendUrl}
