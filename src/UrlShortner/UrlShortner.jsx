@@ -5,7 +5,7 @@ import hash from '../utils/hash';
 function UrlShortner() {
     const queryString = window.location.search;
     const apiUrl = import.meta.env.VITE_SHORT_URL_API;
-    const shortcoUrlApi = import.meta.env.VITE_SHORTCO_URL_API;
+    // const shortcoUrlApi = import.meta.env.VITE_SHORTCO_URL_API;
     const [url, setUrl] = useState();
     const [shortendUrl, setShortenedUrl] = useState('');
 
